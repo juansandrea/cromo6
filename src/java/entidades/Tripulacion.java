@@ -7,10 +7,15 @@ public class Tripulacion {
     private int DNI;
     private String cargo;
 
-    public Tripulacion(String nombre, String apellido, int DNI) {
+    public Tripulacion(String nombre, String apellido, int DNI, String cargo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.DNI = DNI;
+        this.cargo = cargo;
+    }
+
+    public Tripulacion(String nombre, String apellido, int dni) {
+
     }
 
     public String getNombre() {

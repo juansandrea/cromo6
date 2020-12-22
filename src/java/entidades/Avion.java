@@ -1,16 +1,23 @@
 package entidades;
 
+import throwable.CombustibleInsuficienteException;
+import throwable.PuertasInsuficientesException;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Avion {
 
     private int largo;
     private int puerta;
-    private int combustible;
+    private double combustible;
     private Tripulacion tripulacion;
     private Pasajero pasajeros;
     private int altura;
     private int velocidad;
+    private Map<String,Double> combustiblePorDestino;
 
-    public Avion(int largo, int puerta, int combustible, Tripulacion tripulacion, Pasajero pasajeros, int altura, int velocidad) {
+    public Avion(int largo, int puerta, double combustible, Tripulacion tripulacion, Pasajero pasajeros, int altura, int velocidad) {
         this.largo = largo;
         this.puerta = puerta;
         this.combustible = combustible;
@@ -18,10 +25,12 @@ public class Avion {
         this.pasajeros = pasajeros;
         this.altura = altura;
         this.velocidad = velocidad;
+
+        combustiblePorDestino = new HashMap<>();
     }
 
     public int getLargo() {
-        return largo;
+        return this.largo;
     }
 
     public void setLargo(int largo) {
@@ -29,23 +38,23 @@ public class Avion {
     }
 
     public int getPuerta() {
-        return puerta;
+        return this.puerta;
     }
 
     public void setPuerta(int puerta) {
         this.puerta = puerta;
     }
 
-    public int getCombustible() {
-        return combustible;
+    public double getCombustible() {
+        return this.combustible;
     }
 
-    public void setCombustible(int combustible) {
+    public void setCombustible(double combustible) {
         this.combustible = combustible;
     }
 
     public Tripulacion getTripulacion() {
-        return tripulacion;
+        return this.tripulacion;
     }
 
     public void setTripulacion(Tripulacion tripulacion) {
@@ -53,7 +62,7 @@ public class Avion {
     }
 
     public Pasajero getPasajeros() {
-        return pasajeros;
+        return this.pasajeros;
     }
 
     public void setPasajeros(Pasajero pasajeros) {
@@ -62,7 +71,7 @@ public class Avion {
 
 
     public int getAltura() {
-        return altura;
+        return this.altura;
     }
 
     public void setAltura(int altura) {
@@ -70,10 +79,31 @@ public class Avion {
     }
 
     public int getVelocidad() {
-        return velocidad;
+        return this.velocidad;
     }
 
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
+
+    public void estaListoParaDespegar(double combustible , int cantidad)throws CombustibleInsuficienteException, PuertasInsuficientesException {
+
+        if (this.combustible < combustible){
+            throw new CombustibleInsuficienteException(100.00d);
+        }
+
+        if (this.puerta > cantidad){
+            throw new PuertasInsuficientesException(2);
+        } else {
+            return ;
+        }
+
+    }
+
+
+    public void aterrizarDeEmergencia(){
+
+    }
+
+
 }

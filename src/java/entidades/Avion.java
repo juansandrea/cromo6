@@ -83,16 +83,16 @@ public abstract class Avion {
         if (this.puerta < (this.tripulacion.size() + this.pasajeros.size()) / 50)
             throw new PuertasInsuficientesException();
 
-        double combust = 0;
+        double combustibleavion = 0;
         Iterator it = combustiblePorDestino.keySet().iterator();
         while (it.hasNext()) {
             String destinos = (String) it.next();
             if (destinos.equals(this.destino)) {
-                combust = combustiblePorDestino.get(destinos);
+                combustibleavion = combustiblePorDestino.get(destinos);
                 break;
             }
         }
-        if (combust <= this.combustible) {
+        if (combustibleavion <= this.combustible) {
             return true;
         } else {
             throw new CombustibleInsuficienteException();

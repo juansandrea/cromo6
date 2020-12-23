@@ -21,9 +21,7 @@ public class Tripulacion {
         this.cargo = cargo;
     }
 
-    public Tripulacion(String nombre, String apellido, int dni) {
 
-    }
 
     public String getNombre() {
         return nombre;
@@ -61,4 +59,7 @@ public class Tripulacion {
     public String toString() {
         return "Tripulacion{" + "nombre='" + nombre + '\'' + ", apellido='" + apellido + '\'' + ", DNI=" + DNI + ", cargo='" + cargo + '\'' + '}';
     }
+
+
+
 }

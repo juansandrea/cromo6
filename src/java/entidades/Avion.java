@@ -22,15 +22,20 @@ public abstract class Avion {
     private Map<String,Double> combustiblePorDestino;
 
 
-    public Avion(int largo, int puerta, double combustible,ArrayList<Pasajero> pasajeros,String destino, int altura, int velocidad) {
+    public Avion(int largo, int puerta, double combustible,ArrayList<Tripulacion> tripulacion,ArrayList<Pasajero> pasajeros,String destino, int altura, int velocidad) {
         this.largo = largo;
         this.puerta = puerta;
         this.combustible = combustible;
+        this.tripulacion = tripulacion;
         this.pasajeros = pasajeros;
         this.altura = altura;
         this.velocidad = velocidad;
 
-        combustiblePorDestino = new HashMap< String, Double>();
+        combustiblePorDestino = new HashMap<>();
+        combustiblePorDestino.put("rio de janeiro",50.00);
+        combustiblePorDestino.put("new york",60.00);
+        combustiblePorDestino.put("barcelona",35.00);
+        combustiblePorDestino.put("madrid",40.00);
 
     }
 
@@ -85,9 +90,9 @@ public abstract class Avion {
         double combust = 0;
         Iterator it = combustiblePorDestino.keySet().iterator();
         while (it.hasNext()) {
-                String dest = (String) it.next();
-                if (dest.equals(this.destino)) {
-                    combust = combustiblePorDestino.get(dest);
+                String destinos = (String) it.next();
+                if (destinos.equals(this.destino)) {
+                    combust = combustiblePorDestino.get(destinos);
                     break;
                 }
             }
@@ -104,11 +109,11 @@ public abstract class Avion {
         Scanner teclado = new Scanner(System.in);
         System.out.println(" Ingres el nombre del tripulante " );
         tripulante.setNombre(teclado.nextLine());
-        System.out.println(" Ingres el nombre del tripulante " );
+        System.out.println(" Ingres el apellido del tripulante " );
         tripulante.setApellido(teclado.nextLine());
-        System.out.println(" Ingres el nombre del tripulante " );
+        System.out.println(" Ingres el cargo del tripulante " );
         tripulante.setCargo(teclado.nextLine());
-        System.out.println(" Ingres el nombre del tripulante " );
+        System.out.println(" Ingres el dni del tripulante " );
         tripulante.setDNI(teclado.nextInt());
 
         tripulacion.add(tripulante);

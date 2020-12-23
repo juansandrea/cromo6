@@ -2,5 +2,5 @@ package throwable;
 
 public class CombustibleInsuficienteException extends Exception{
 
-    public CombustibleInsuficienteException(double combustible){super(String.valueOf(combustible));}
+    public CombustibleInsuficienteException(){super("No hay Combustible suficiente");}
 }

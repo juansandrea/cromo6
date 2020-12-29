@@ -286,7 +286,7 @@ public class Main {
         Crucero crucero2 = new Crucero(20,8,70.00,tripulacion,pasajeros,"madrid",80,100);
         Avioneta avioneta3 = new Avioneta(5,2,50.00,tripulacion,pasajeros,"rio de janeiro",20,30);
 
-        //avioneta.ingresarTripulante();
+        avioneta.ingresarTripulante();
         estacionados.add(crucero);
         estacionados.add(crucero1);
         estacionados.add(crucero2);
